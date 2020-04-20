@@ -2,6 +2,6 @@
 
 ## Usage
 
-Install dependencies via `pip3 install -r dependencies.txt`.
+Install dependencies via `pip3 install -r requirements.txt`.
 
 Place `run_test.py` in an assignment directory (i.e. a4, a5). Run via `python3 run_test.py tests/<test>` where `<test>` is the test file.
