@@ -4,12 +4,29 @@ import subprocess
 import requests
 from bs4 import BeautifulSoup
 
+if len(sys.argv) <= 1:
+    print(
+        """
+        Missing test case.
+        Usage: python3 run_test.py tests/<test>
+        """
+    )
+    exit()
+
 test_case = sys.argv[1]
 
-test_string = open(test_case, "r").read()
+try:
+    test_string = open(test_case, "r").read()
+except FileNotFoundError:
+    print(f"Test case not found: {test_case}")
+    exit()
 
 
 def run_main_hs():
+    if not os.path.exists("Main.hs"):
+        print("run_test.py should be placed in an assignment directory (i.e. a1, a2, etc).")
+        exit()
+
     comp = subprocess.run(["stack", "runghc", "Main.hs", f"{test_case}"],
                             stdout=subprocess.PIPE, encoding="UTF-8")
 
