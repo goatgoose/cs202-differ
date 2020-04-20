@@ -3,7 +3,6 @@ import os
 import subprocess
 import requests
 from bs4 import BeautifulSoup
-from pathlib import Path
 
 test_case = sys.argv[1]
 
