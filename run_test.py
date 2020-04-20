@@ -4,6 +4,10 @@ import subprocess
 import requests
 from bs4 import BeautifulSoup
 
+if not os.path.exists("Main.hs"):
+    print("run_test.py should be placed in an assignment directory (i.e. a1, a2, etc).")
+    exit()
+
 if len(sys.argv) <= 1:
     print(
         """
@@ -23,10 +27,6 @@ except FileNotFoundError:
 
 
 def run_main_hs():
-    if not os.path.exists("Main.hs"):
-        print("run_test.py should be placed in an assignment directory (i.e. a1, a2, etc).")
-        exit()
-
     comp = subprocess.run(["stack", "runghc", "Main.hs", f"{test_case}"],
                             stdout=subprocess.PIPE, encoding="UTF-8")
 
