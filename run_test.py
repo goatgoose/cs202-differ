@@ -35,6 +35,6 @@ if __name__ == '__main__':
 
     open(f"{assignment_dir}/solution_out.txt", "w").write(solution_text)
     open(f"{assignment_dir}/comp_out.txt", "w").write(comp_text)
-    diff = subprocess.run(["diff", "-y", f"{assignment_dir}/comp_out.txt", f"{assignment_dir}/solution_out.txt"])
+    diff = subprocess.run(["ydiff", "-s", f"{assignment_dir}/comp_out.txt", f"{assignment_dir}/solution_out.txt"])
     print(diff.stdout)
 
